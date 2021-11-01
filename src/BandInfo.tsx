@@ -1,7 +1,9 @@
 import React from 'react';
 
 const BandInfo = () => {
-    return <div></div>;
+    return <Container>
+
+    </Container>;
 };
 
 export default BandInfo;

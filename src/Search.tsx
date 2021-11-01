@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from './AxiosInstance';
-import { Band } from './api/Band';
-import { Col, Container, Row, Spinner } from 'react-bootstrap';
+import {Band} from './api/Band';
+import {Col, Container, Row, Spinner} from 'react-bootstrap';
 import BandDisplay from './BandDisplay';
-import { useLocation } from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import cancel from 'axios';
 
 const Search = () => {
@@ -29,20 +29,20 @@ const Search = () => {
 
     return !isLoading ? (
         <Container>
-            {arrayToChunks(3, bands).map((chunks, idx) => (
-                <Row key={idx} className={'m-5'}>
-                    {chunks.map(val => (
-                        <Col key={val.id}>
-                            <BandDisplay band={val} />
+            <Row xs={1} md={2} lg={3} xl={5} className={'g-3'} aria-live={'polite'}>
+                {
+                    bands.map((val) =>
+                        <Col>
+                            <BandDisplay band={val}/>
                         </Col>
-                    ))}
-                </Row>
-            ))}
+                    )
+                }
+            </Row>
         </Container>
     ) : (
         <Container
             className={'d-flex align-items-center justify-content-center'}>
-            <Spinner animation={'border'} />
+            <Spinner animation={'border'}/>
         </Container>
     );
 };
