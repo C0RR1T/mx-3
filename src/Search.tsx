@@ -32,7 +32,7 @@ const Search = () => {
             <Row xs={1} md={2} lg={3} xl={5} className={'g-3'} aria-live={'polite'}>
                 {
                     bands.map((val) =>
-                        <Col>
+                        <Col className={'mr-5'}>
                             <BandDisplay band={val}/>
                         </Col>
                     )
