@@ -3,7 +3,7 @@ import { Band } from './api/Band';
 import { Button, Card } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
-const BandDisplay = ({ band }: { band: Band }) => {
+const BandDisplay = ({ band, onInfo }: { band: Band, onInfo: () => void }) => {
     const history = useHistory();
     return (
         <Card style={{ width: '20rem', maxHeight: '50rem' }}>
@@ -24,7 +24,7 @@ const BandDisplay = ({ band }: { band: Band }) => {
                 </Card.Body>
             </Card.Body>
             <Card.Footer>
-                <Button onClick={() => history.push(`/bands/${band.id}`)}>
+                <Button onClick={onInfo}>
                     Mehr Infos anzeigen
                 </Button>
             </Card.Footer>

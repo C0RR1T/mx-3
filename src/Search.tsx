@@ -5,9 +5,11 @@ import {Col, Container, Row, Spinner} from 'react-bootstrap';
 import BandDisplay from './BandDisplay';
 import {useLocation} from 'react-router-dom';
 import cancel from 'axios';
+import BandInfo from "./BandInfo";
 
 const Search = () => {
     const [bands, setBands] = useState<Array<Band>>([]);
+    const [band, setBand] = useState<Band>();
     const [isLoading, setIsLoading] = useState(true);
     const location = useLocation();
     useEffect(() => {
@@ -29,11 +31,12 @@ const Search = () => {
 
     return !isLoading ? (
         <Container>
+            <BandInfo band={band} onClose={() => setBand(undefined)}/>
             <Row xs={1} md={2} lg={3} xl={5} className={'g-3'} aria-live={'polite'}>
                 {
                     bands.map((val) =>
                         <Col className={'mr-5'}>
-                            <BandDisplay band={val}/>
+                            <BandDisplay band={val} onInfo={() => setBand(val)}/>
                         </Col>
                     )
                 }
