@@ -15,9 +15,6 @@ const AppNavbar = () => {
                     <Link className={'nav-link'} to={'/'}>
                         Home
                     </Link>
-                    <Link to={'/popular-bands'} className={'nav-link'}>
-                        Popular Bands
-                    </Link>
                 </Nav>
                 <Nav>
                     <Form onSubmit={(e) => {
